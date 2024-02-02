@@ -66,16 +66,14 @@ Seu uso seria em conjunto com a [Fetch API](https://developer.mozilla.org/en-US/
 
 Caso o projeto siga com Rest e o uso da lib reac-query, adicionaria provavelmente o jotai ao projeto pela sua simplicidade, mas caso alternasse para Graphql, a escolha ficaria pelo [Apollo](https://www.apollographql.com/) que ao mesmo tempo facilita o uso o Graphql.
 
-## Outras libs
-- [use-debounce](https://www.npmjs.com/package/use-debounce): Evita que em um campo de busca por exemplo, todo o carácter digitado faça uma request, a request é feita então apenas depois de alguns milissegundos que o usuário para de digitar.
-
-<br /><br /><br />
 
 # Em breve
-Assim que possível pretendo adicionar as seguintes ferramentas no projeto.
+Assim que possível pretendo adicionar as seguintes libs ao projeto.
 
-## Cypress
-[Cypress](https://www.cypress.io/) é uma ferramenta de testes que cobre muitos tipos de testes. Pretendo adicionar ele mais especificamente para os testes end-to-end, ajudando a cobrir cenários como um todo de forma mais próxima de como a aplicação seria usada por um usuário.
+- [use-debounce](https://www.npmjs.com/package/use-debounce): Evita que em um campo de busca por exemplo, todo o carácter digitado faça uma request, sendo executada apenas depois de alguns milissegundos que o usuário pare de digitar.
 
-## Mirage
-O [Mirage](https://miragejs.com/) nos ajuda a mockarmos as API's do projeto quando executado em modo de desenvolvimento, facilitando a codificação de novas features, não sendo necessário por exemplo que algum endpoint já tenha sido desenvolvido ou esteja em funcionamento para que a aplicação funcione. 
+- [react-window](https://github.com/bvaughn/react-window): Ajuda na performance da aplicação ao renderizar inúmeros componentes em uma lista.
+
+- [Cypress](https://www.cypress.io/): é uma ferramenta de testes que cobre muitos tipos de testes. Pretendo adicionar ele mais especificamente para os testes end-to-end, ajudando a cobrir cenários como um todo de forma mais próxima de como a aplicação seria usada por um usuário.
+
+- [Mirage](https://miragejs.com/): nos ajuda a mockarmos as API's do projeto quando executado em modo de desenvolvimento, facilitando a codificação de novas features, não sendo necessário por exemplo que algum endpoint já tenha sido desenvolvido ou esteja em funcionamento para que a aplicação funcione. 
