@@ -1,36 +1,81 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Esse projeto é um boilerplate para aplicações [Next.js](https://nextjs.org/) criado com [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+Muito do que foi adicionado aqui leva em consideração experiências particulares e gostos, mas não deixando de levar em consideração vantagens e desvantagens.
 
-First, run the development server:
+## Começando
+Para simplificar decidi seguir com o npm, então para iniciar o projeto, basta executar os seguintes comandos.
+
+Instalar as dependências:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm i
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Iniciar o projeto em modo de desenvolvimento:
+```bash
+npm run dev
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Acessar [http://localhost:3000](http://localhost:3000) 
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+*Obs: Talvez para um projeto final eu fizesse a troca do npm por algum outro gerenciador de pacotes.*
 
-## Learn More
+## Next.js
 
-To learn more about Next.js, take a look at the following resources:
+Um dos frameworks front-end/react mais completos e populares até o momento(2024), está em constante desenvolvimento, com ele é possível desenvolver diversos tipos de aplicações e com diferentes necessidades.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Particularmente apenas não iniciaria um projeto utilizando Next.js caso as definições do projeto fossem muito simples e necessitassem apenas de um projeto SPA ou estático.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Ainda estou estudando o Next 14, talvez as escolhas das outras tecnologias feitas até o momento não sejam as melhores para trabalhar se trabalhar com ele.
 
-## Deploy on Vercel
+## TypeScript
+O projeto faz uso do [TypeScript](https://www.typescriptlang.org/), que basicamente nos permite trabalhar com tipagens no [JavaScript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript). Facilita muito a manutenção de um projeto, o seu desenvolvimento e a leitura de código.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Eslint, Prettier e EditorConfig
+Ferramentas auxiliares para a qualidade e padronização de código. 
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- [Eslint](https://eslint.org/): Permite identificarmos problemas no código a nível da linguagem. 
+
+- [Prettier](https://prettier.io/): Ajuda a padronizar a formatação do código, coisas como espaçamentos e aspas. 
+
+- [EditorConfig](https://editorconfig.org/): Semelhante ao Prettier, ajuda a padronizar a formatação pra diferentes tipos de editores de código, já inicializando os arquivos na formatação correta.
+
+*Obs: Ainda está faltando algumas configurações do eslint no projeto.*
+
+## Styled-components (!)
+[styled-components](https://styled-components.com/) uma biblioteca que adota o conceito de CSS-in-JS, gosto dela por ser simples, muito conhecida, e deixar o código mais limpo do que outras abordagens.
+
+Necessário seguir as [configurações para o Next.js](https://nextjs.org/docs/app/building-your-application/styling/css-in-js#styled-components), dessa forma irá funcionar corretamente com os componentes montados do lado do servidor.
+
+*Obs: Talvez essa não seja uma das melhores alternativas para trabalhar com o Next.js, atualmente é necessário adicionar a todos os arquivos de estilo 'use client', ainda irei estudar o assunto e fazer uma possível troca.*
+
+## Jest
+O [Jest](https://jestjs.io/pt-BR/) é dos frameworks de teste mais conhecidos, excelente para os testes unitários, junto da lib [react-testing-library](https://testing-library.com/docs/react-testing-library/intro/) que facilita os testes de componentes react.
+
+Ideal aplicar os testes unitários nas partes que compõem as features mais importantes da aplicação como prioridade, mas se possível ir aplicando ao que estiver sendo desenvolvido, o que acaba ajudando no próprio desenvolvimento.
+
+## API
+Para lidar com API's, optei pela lib [react-query](https://tanstack.com/query/v3/), dada sua popularidade e fácil uso. Faz o cache de requisições, diminuindo o seu número ao evitar que uma mesma requisição seja feita de novo, além de facilitar o acesso a esse cache.
+
+Seu uso seria em conjunto com a [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) que está funcionando bem em conjunto com o Next.js.
+
+*Obs: Por motivos de ainda não ter estudado melhor o [Graphql](https://graphql.org/), optei por seguir esse projeto em Rest, porém seria a escolha ao lidar com um projeto que envolva muitos dados, o Graphql irá dar ao projeto uma boa flexibilidade a novas features e necessidades que venham a ter.*
+
+## Gerenciador de estado
+É possível que um gerenciador de estado nem seja necessário, por conta disso não irei adicionar nenhum por enquanto.
+
+Caso o projeto siga com Rest e o uso da lib reac-query, adicionaria provavelmente o jotai ao projeto pela sua simplicidade, mas caso alternasse para Graphql, a escolha ficaria pelo [Apollo](https://www.apollographql.com/) que ao mesmo tempo facilita o uso o Graphql.
+
+## Outras libs
+- [use-debounce](https://www.npmjs.com/package/use-debounce): Evita que em um campo de busca por exemplo, todo o carácter digitado faça uma request, a request é feita então apenas depois de alguns milissegundos que o usuário para de digitar.
+
+<br /><br /><br />
+
+# Em breve
+Assim que possível pretendo adicionar as seguintes ferramentas no projeto.
+
+## Cypress
+[Cypress](https://www.cypress.io/) é uma ferramenta de testes que cobre muitos tipos de testes. Pretendo adicionar ele mais especificamente para os testes end-to-end, ajudando a cobrir cenários como um todo de forma mais próxima de como a aplicação seria usada por um usuário.
+
+## Mirage
+O [Mirage](https://miragejs.com/) nos ajuda a mockarmos as API's do projeto quando executado em modo de desenvolvimento, facilitando a codificação de novas features, não sendo necessário por exemplo que algum endpoint já tenha sido desenvolvido ou esteja em funcionamento para que a aplicação funcione. 
